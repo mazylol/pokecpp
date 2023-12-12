@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.22)
-project(pokecpp)
+project(PokeCPP VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(pokecpp include/PokeCPP.cpp
+add_library(${PROJECT_NAME}
+        include/PokeCPP.h
+        src/PokeCPP.cpp
         src/pokemon/export.h
         src/pokemon/base.h)
 
@@ -22,7 +24,7 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 
 target_link_libraries(${PROJECT_NAME} curlpp nlohmann_json::nlohmann_json)
-target_include_directories(${PROJECT_NAME} PUBLIC include/)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
 add_executable(test test.cpp)
-target_link_libraries(test pokecpp)
+target_link_libraries(test PokeCPP)
