@@ -3,9 +3,9 @@ project(pokecpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(pokecpp PokeCPP.cpp
-        pokemon/export.h
-        pokemon/base.h)
+add_library(pokecpp include/PokeCPP.cpp
+        src/pokemon/export.h
+        src/pokemon/base.h)
 
 include(FetchContent)
 
@@ -22,7 +22,7 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 
 target_link_libraries(${PROJECT_NAME} curlpp nlohmann_json::nlohmann_json)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC include/)
 
 add_executable(test test.cpp)
 target_link_libraries(test pokecpp)

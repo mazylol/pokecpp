@@ -1,7 +1,7 @@
 #include "PokeCPP.h"
 
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
+#include "curlpp/Easy.hpp"
+#include "curlpp/Options.hpp"
 
 #include <sstream>
 

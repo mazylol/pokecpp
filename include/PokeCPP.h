@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "pokemon/export.h"
+#include "../src/pokemon/export.h"
 
 Pokemon getPokemon(const std::string &name);
 
