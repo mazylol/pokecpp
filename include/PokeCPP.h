@@ -7,8 +7,4 @@
 
 Pokemon getPokemon(const std::string &name);
 
-class PokeCPP : public Pokemon {
-
-};
-
 #endif //POKECPP_POKECPP_H
